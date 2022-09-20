@@ -10,18 +10,18 @@
 7) in terminal, type => npm install -g opspark
 8) ipn terminal, type => os install
 
-# How to run git comands
+# How to run git commands
 1) in terminal, type => git add -A
 2) in terminal, type => git commit -m "first commit"
 3) in terminal, type => git push
 
-# How to test prjects
+# How to test projects
 1) make sure you have run `npm install -g opspark` in terminal
 2) in terminal, type => os test
 3) select bootcamp session
 4) select project to test
 
-# How to submit porjects
+# How to submit projects
 1) make sure you have run `npm install -g opspark` in terminal
 2) make sure you have run os test and apssed all tests
 3) in terminal, typ => os submit
