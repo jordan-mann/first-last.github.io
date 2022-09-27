@@ -58,12 +58,10 @@ return string.toUpperCase();
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 //use lowerCase method to force to lower case
-string.toLowerCase();
+var string1 = string.toLowerCase();
 //use replace method to replace space with dash
-var newString = string.replace(/ /g, '-');
+var newString = string1.replace(/ /g, '-');
 return newString;
-
-
 
     // YOUR CODE ABOVE HERE //
 }
@@ -83,12 +81,12 @@ return newString;
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
 //use toLowerCase method to force string and char to lower case
-string.toLowerCase();
-char.toLowerCase();
+var string1 = string.toLowerCase();
+var char1 = char.toLowerCase();
 
 //use if array access to locate first character in the string
 //use considtional if else statement and boolean
-if (string[0] === char){
+if (string1[0] === char1){
     return true; 
 }else {
     return false;
@@ -113,10 +111,12 @@ if (string[0] === char){
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
 //use toLowerCase methode to force string and char to lower case
-string.toLowerCase();
-char.toLowerCase();
+//create variable string1 to be string forced to lower case
+//creawte varialbe char1 to be char forced to lower case
+var string1 = string.toLowerCase();
+var char1 = char.toLowerCase();
 //Use index method in conditional if else statement to find last character of a string and use boolean to compare it to char
-if (string[string.length-1] === char){
+if (string1[string1.length-1] === char1){
     return true;
 }else{
     return false;
@@ -131,8 +131,8 @@ if (string[string.length-1] === char){
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+//use concat operator + to join to strings and return them as one string
+return stringOne + stringTwo;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -150,7 +150,8 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
+    var args1 = args.concat();
+return args1;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -166,7 +167,13 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+//use .length to compare length of strings
+//use if else statement
+if (stringOne.length > stringTwo.length){
+    return stringOne;
+} else if (stringTwo.length > stringOne.length) {
+    return stringTwo;
+}
 
 
     // YOUR CODE ABOVE HERE //
