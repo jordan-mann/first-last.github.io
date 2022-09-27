@@ -150,8 +150,8 @@ return stringOne + stringTwo;
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-    var args1 = args.concat();
-return args1;
+    //use .join method to join elements of args into a string
+return args.join('');
 
     // YOUR CODE ABOVE HERE //
 }
@@ -188,12 +188,20 @@ if (stringOne.length > stringTwo.length){
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+//write conditional statement to compare strings and return different values
+if (stringOne > stringTwo){
+    //return -1
+    return -1
+}else if (stringTwo > stringOne){
+    //return 1
+    return 1
+}else if (stringOne === stringTwo){
+    //return 0
+    return 0;
 
     // YOUR CODE ABOVE HERE //
 }
-
+}
 
 /**
  * Given two Strings, return 1 if the first is lower in alphabetical order than
@@ -204,8 +212,17 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+//write conditional statement to compare strings and return different values
+if (stringOne > stringTwo){
+    //return 1
+    return 1
+}else if (stringTwo > stringOne){
+    //return -1
+    return -1
+}else if (stringOne === stringTwo){
+    //return 0
+    return 0;
+}
 
 
     // YOUR CODE ABOVE HERE //
