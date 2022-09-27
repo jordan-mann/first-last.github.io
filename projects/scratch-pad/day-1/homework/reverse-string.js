@@ -21,15 +21,15 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE GOES ABOVE HERE //
+    //create an empty string to hold the new reversed string
+    var newString = '';
+  //use for loop to start at the end of the string and decrement
+for (var i = input.length-1; i >=0; i--) {
+  newString += input[i];
 }
-
-
-
+//return newString to obtain reversed string
+ return newString;
+}
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
