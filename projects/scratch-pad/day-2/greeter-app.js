@@ -35,7 +35,28 @@
 
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
+    //using if, else if, else statement create a different greeting for each time of day
+
+    //use if statement if the hour is 0-11
+    if (hour >= 0 && hour < 12) {
+        //log message to the console
+        console.log('Good Morning!');
+
+    //use else if statement if the hour is 12-16
+    }else if (hour >= 12 && hour < 17){
+        //log message to the console
+        console.log('Good Afternoon!');
     
+    //use else if statement if hour is 17-21
+    }else if (hour >= 17 && hour < 22){
+        //log message to the console
+        console.log('Good Evening!');
+    
+    //use else statement to log message to the console
+    }else {
+        console.log('Good Night!');
+    }
+
     
     
     
