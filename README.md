@@ -23,7 +23,7 @@
 
 # How to submit projects
 1) make sure you have run `npm install -g opspark` in terminal
-2) make sure you have run os test and apssed all tests
+2) make sure you have run os test and passed all tests
 3) in terminal, typ => os submit
 4) select bootcamp session
 5) select project you want to submit

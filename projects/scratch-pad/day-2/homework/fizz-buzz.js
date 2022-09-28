@@ -12,7 +12,26 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
+//create a for loop that can access every number from 1 to 100
+for (var i = 1; i <= 100; i++) {
 
+    //The for loop will iterate through an if else if statement to print different values to the console
+
+if (i % 3 === 0 && i % 5 === 0) {
+    //console log message
+    console.log('FizzBuzz');
+}else if (i % 3 === 0) {
+    //console log message
+    console.log('Fizz');
+}else if (i % 5 === 0) {
+    //console log message
+    console.log('Buzz');
+
+}else {
+    //console log message
+    console.log(i);
+}
+}
 
 
     // YOUR CODE GOES ABOVE HERE //
