@@ -14,7 +14,8 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    //use Array.isArray method to test if vlue is an array
+    return Array.isArray(value);
     
     
     
@@ -29,10 +30,28 @@ function isArray(value) {
  * null, not an Array, not a Date - all of these will return 'object' if used 
  * with typeof.
  */
-function isObject(value) {
+function isObject(value) { //{a:1, b: 2} -> collection of key/value pairs
     // YOUR CODE BELOW HERE //
     
-    
+    //determine if teypof value is 'object' AND value is not an array AND value is not null
+    //AND value is not an instance of the date object (google how to see if something is instance
+    //of date object)
+
+    if (value === null){
+        return false;
+    }
+    if (Array.isArray(value)){
+        return false;
+    }
+    if (value instanceof new Date()) {
+        return false;
+    }
+    if (typeof 'object'){
+        return true;
+
+    }
+
+   
     
     
     // YOUR CODE ABOVE HERE //
