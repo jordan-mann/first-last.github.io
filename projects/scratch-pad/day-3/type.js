@@ -37,23 +37,24 @@ function isObject(value) { //{a:1, b: 2} -> collection of key/value pairs
     //AND value is not an instance of the date object (google how to see if something is instance
     //of date object)
 
-
+//use if statement to return false if value is null
     if (value === null) {
         return false;
     }
+
+    //use if statement to return false if value is Array
     if (Array.isArray(value)) {
         return false;
     }
+
+    //us if statement to return false if value is Date
     if (value instanceof Date) {
         return false
     }
-
+    
+    //use typeof to return 'object' if object takes a collection
     return typeof value === 'object';
-  
-
-   
-    
-    
+      
     // YOUR CODE ABOVE HERE //
 }
 
