@@ -102,6 +102,37 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+
+    //using if statements, return each typeof value as a string
+    if (typeOf('string')) {
+        return 'string';
+    }
+    else if (typeOf([])) {
+        return 'array';
+    }
+    else if (typeOf({})) {
+        return 'object';
+    }
+    else if (typeOf(undefined)) {
+        return 'undefined';
+    }
+    else if (typeOf(123)) {
+        return 'number';
+    }
+    else if (typeOf(boolean)) {
+        return 'boolean';
+    }
+    else if (typeOf(null)) {
+        return 'null';
+    }
+    else if (typeOf(function() {})) {
+        return 'function';
+    }
+    else if (typeOf(value instanceof Date)) {
+        return 'date';
+    }
+    
+    
     
     
     
