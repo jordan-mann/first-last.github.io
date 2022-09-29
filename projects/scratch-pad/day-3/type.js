@@ -52,23 +52,31 @@ function isObject(value) { //{a:1, b: 2} -> collection of key/value pairs
         return false
     }
     
-    //use typeof to return 'object' if object takes a collection
+    //use typeof to return true if object takes a collection
     return typeof value === 'object';
       
     // YOUR CODE ABOVE HERE //
 }
 
 /** 
- * Given an input value, return true if is either an Array or an an Object 
+ * Given an input value, return true if it is either an Array or an an Object 
  * intended as a collection, false if otherwise.
  * 
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    //use if statement to return false if value is null
+    if(value === null){
+        return false;
+    }
+    //use if statement to return false if value is Date
+    if (value instanceof Date) {
+        return false;
+    }
+    //use typeof to return true if value is an Array or if value is object that takes a collection
+    //use || operator
+    return (Array.isArray(value) || typeof value === 'object');
     
     // YOUR CODE ABOVE HERE //
 }
