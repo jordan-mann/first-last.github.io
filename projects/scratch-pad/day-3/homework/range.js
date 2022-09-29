@@ -23,8 +23,33 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+    //create an array variable to collect outputs
+    var outputs = [];
+
+    //use if conditional to create rule if start is less than end
+    if (start < end) {
+
+    //use for loop to loop through start to end
+    for (var i = start; i <= end; i++) {
+
+        //use push method to push numbers to outputs array
+         outputs.push(i);
+    }
     
-    
+    }
+     
+    //use if conditional to create rule if start is greater than end
+    if (start > end) {
+
+        // for loop to loop through start to end
+        for ( var i = start; i >= end; i--){
+             outputs.push(i);
+        }
+
+        
+    }
+    //return outputs from either conditional statement
+    return outputs;
     
     
     // YOUR CODE GOES ABOVE HERE //
