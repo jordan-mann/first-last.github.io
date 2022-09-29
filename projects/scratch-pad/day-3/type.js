@@ -104,31 +104,31 @@ function typeOf(value) {
     // YOUR CODE BELOW HERE //
 
     //using if statements, return each typeof value as a string
-    if (typeOf('string')) {
+    if (typeof value === 'string') {
         return 'string';
     }
-    else if (typeOf([])) {
+    else if (Array.isArray(value)) {
         return 'array';
     }
-    else if (typeOf({})) {
+    else if (typeof value === 'object'  && !(Array.isArray(value)) && value !== null && !(value instanceof Date)) {
         return 'object';
     }
-    else if (typeOf(undefined)) {
+    else if (typeof value === 'undefined') {
         return 'undefined';
     }
-    else if (typeOf(123)) {
+    else if (typeof value === 'number') {
         return 'number';
     }
-    else if (typeOf(boolean)) {
+    else if (typeof value === 'boolean') {
         return 'boolean';
     }
-    else if (typeOf(null)) {
+    else if(value === null && value !== 'object' && !(Array.isArray(value)) && !(value instanceof Date)) {
         return 'null';
     }
-    else if (typeOf(function() {})) {
+    else if (typeof value === 'function') {
         return 'function';
     }
-    else if (typeOf(value instanceof Date)) {
+    else if (value instanceof Date && value !== 'object' && !(Array.isArray(value)) && value !== null) {
         return 'date';
     }
     

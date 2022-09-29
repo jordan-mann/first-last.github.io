@@ -138,7 +138,7 @@ function allStringsPass(strings, test) {  //test is a function that will 'test' 
             return false;
         }
     }
-   return true;
+    return true;
     
     // YOUR CODE ABOVE HERE //
 }
