@@ -34,8 +34,18 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
+function makeContact(id, nameFirst, nameLast) {     //FACTORY FUNCTION
 
+    //create variable obj that is an object literal {}
+    var obj = {};
+
+    //using dot notation, create new keys in the object literal {}, and assign them the parameters of the makeContact function
+    obj.id = id;
+    obj.nameFirst = nameFirst;
+    obj.nameLast = nameLast;
+
+    //return the var obj
+    return obj;
 } 
 
 
@@ -43,20 +53,50 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+    
+        //create addContact function that takes a new contact and adds it to the contacts array
+        addContact: function(contact) {
+            //use push method to push new contact into contacts array
+            contacts.push(contact);
+        },
+
+        //create function findContact that takes a fullName as a string and returns the object if found in the contacts list
+        findContact: function(fullName) {
+            //use for loop to iterate through the objects of the array
+            for (var i = 0; i < contacts.length; i++) {
+                //use conditional statement to check if nameFirst + nameLast in each object in contacts array equals fullName
+                //use dot notation to specify the values at the nameFirst and nameLast keys in each object
+                if (fullName === contacts[i].nameFirst + ' ' + contacts[i].nameLast) {
+                    return contacts[i];
+                }
+            }
+        },
+
+        //create function removeContact that removes a contact from the contacts array
+        removeContact: function(contactToRemove) {
+            //use splice method to remove contact from contacts array
+            contacts.splice(contactToRemove, 1);
+        },
+
+        //create function printAllContactNames that returns a String formated with all the full-names of the separated with a line-break
+        printAllContactNames: function() {
+            var fullNames = '';
+            for (var i = 0; i < contacts.length; i++) {
+                fullNames += contacts[i].nameFirst + ' ' + contacts[i].nameLast
+            }
         }
-    }
+    }  
+       
 }
-
-
-
-
-// YOUR CODE GOES ABOVE HERE //
+        
+    // YOUR CODE GOES ABOVE HERE //
 
 
 
