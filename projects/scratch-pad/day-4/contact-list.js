@@ -85,20 +85,34 @@ function makeContactList() {
             contacts.splice(contactToRemove, 1);
         },
  //create function printAllContactNames that returns a String formated with all the full-names of the separated with a line-break
+  //I need to access the nameFirst and nameLast in the contacts array except from the last object and combine them into full name strings
+  //I need to access the nameFirst and nameLast from the last object in the contacts array separately from the rest
+    //Once I have full name strings, I need to concatenate the strings into one string, with each  name on a separate line
+
  printAllContactNames: function() {
+
+    //create variable fullNames and assign it to an empty string. This is where all but the last namesFirst and nameLast vaulues will go
     var fullNames = '';
+
+    //create varialbe finalName and assign it to an empty string. This is where the final nameFirst and nameLast values will go
     var finalName = '';
+
+    //use for loop to iterate contacts array
     for (var i = 0; i < contacts.length; i++) {
+
+        //use if conditional statement to assign all the nameFirst and nameLast values to fullNames, and end each iteration by adding a line break (\n) to the string
         if (i < contacts.length - 1){
             fullNames = fullNames + contacts[i].nameFirst + ' ' + contacts[i].nameLast + '\n';
+
+        //use else if statement to assign the final nameFirst and nameLast values to finalName
         }else if (i = contacts.length - 1){
             finalName = finalName + contacts[i].nameFirst + ' ' + contacts[i].nameLast;
         
         }
     }
+    //return fullName concatenated with finalName
 return fullNames + finalName;
-    //I need to access the nameFirst and nameLast in the contacts array and combine them into full name strings
-    //Once I have full name strings, I need to concatenate the strings into one string, with each  name on a separate line
+   
 }  
        
 }
