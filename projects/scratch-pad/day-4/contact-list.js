@@ -84,16 +84,24 @@ function makeContactList() {
             //use splice method to remove contact from contacts array
             contacts.splice(contactToRemove, 1);
         },
-
-        //create function printAllContactNames that returns a String formated with all the full-names of the separated with a line-break
-        printAllContactNames: function() {
-            var fullNames = '';
-            for (var i = 0; i < contacts.length; i++) {
-                fullNames += contacts[i].nameFirst + ' ' + contacts[i].nameLast
-            }
+ //create function printAllContactNames that returns a String formated with all the full-names of the separated with a line-break
+ printAllContactNames: function() {
+    var fullNames = '';
+    var finalName = '';
+    for (var i = 0; i < contacts.length; i++) {
+        if (i < contacts.length - 1){
+            fullNames = fullNames + contacts[i].nameFirst + ' ' + contacts[i].nameLast + '\n';
+        }else if (i = contacts.length - 1){
+            finalName = finalName + contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+        
         }
-    }  
+    }
+return fullNames + finalName;
+    //I need to access the nameFirst and nameLast in the contacts array and combine them into full name strings
+    //Once I have full name strings, I need to concatenate the strings into one string, with each  name on a separate line
+}  
        
+}
 }
         
     // YOUR CODE GOES ABOVE HERE //
