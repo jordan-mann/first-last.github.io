@@ -63,7 +63,7 @@ console.log(myName); // this prints => Reference error; myName is not defined. T
 
 
 /*
-The let statment also declares a variable. However, unlike var, let is block-scoped, rather than function-scoped or globablly-scoped. Being block scoped means that
+The let statment also declares a variable. However, unlike var, let is usually block-scoped, rather than function-scoped or globablly-scoped. Being block scoped means that
 that the variable declared with let will not be accessible from outside the particualr block of code it was declared in. A 'block' of code is code that is containted 
 in curly braces in a function.
 */
