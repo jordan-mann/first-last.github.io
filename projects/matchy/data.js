@@ -164,7 +164,7 @@ console.log(friends);
 
 //add the the key value of friends and the random animal to the animals array
 
-animals[1]['friends'] = friends;
+animals[getRandom(animals)]['friends'] = friends;
 
 
 
