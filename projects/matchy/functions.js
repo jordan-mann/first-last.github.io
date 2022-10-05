@@ -85,16 +85,17 @@ function remove(array, name) {
 //and an object representing a new animal
 function add(array, object) {
 
-    for (var i = 0; i < array.length; i++)
+    for (var i = 0; i < array.length; i++) {
     //use if statement to check if the animal object has a name property with a
-    //length > 0
-    if (object.name.length > 0 && object.species.length > 0 && object.name !== array[i].name) {
-        array.push(object);
-        return object;
-        }else {
-            return null;
+    //length > 0, species property with a length > 0, and object name === name in object in animals array
+    if (object.name.length > 0 && object.species.length > 0 && object.name === array[i].name) {
+        //if an new animal has a new same as an existing animal, return null
+        return null;
+           
         }
-    
+    }
+    //outside the for loop, return the animal added to the animals array. 
+    return array.push(object);
 };
 
 
