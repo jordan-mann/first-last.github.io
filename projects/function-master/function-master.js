@@ -250,8 +250,17 @@ function nonFriends(name, array) {
 
 //updateObject() : Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. If <key> does not exist on <object> create it.
 function updateObject(object, key, value) {
-object.key = value;
 
+   //check object to see if key exists in object
+        if (object.hasOwnProperty(key)) {
+            //if key does exist, update the value to the passed in value, and return the updated object
+            object[key] = value;
+            return object;
+            //if the key does not exist, update the value to include the passed in key/value pair, and return the updated object
+     } else {
+        object[key] = value;
+        return object;
+     }
 }
 
 //////////////////////////////////////////////////////////////////////
