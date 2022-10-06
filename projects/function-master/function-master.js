@@ -161,13 +161,42 @@ return object;
 //isFriend() : Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
 function isFriend(name, object) {
 
+    
+//use a for loop to iterate through the names in the friends array
+for (var i = 0; i < object.friends.length; i++) {
+//use if statement to test if name is friend of object
+if (name === object.friends[i]) {
+    //return true
+    return true; 
+}else if (object.friends === 0) {
+    return false;
+}
+
+}
+    //return false
+    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with
 function nonFriends(name, array) {
+
+//create variable notFriends as an empty array
+let notFriends = [];
+//use for loop to iterate through list of people
+for (var i = 0; i < array.length; i++) {
+    for (var j = 0; j < object.friends.length; j++) {
+
+        //use if statement to test if people are not friends
+    if (array[i] !== object.friends[j]) {
+        notFriends.push(array[i]);
+    }
+    }
+}
+return notFriends;
 
 }
 
@@ -175,7 +204,9 @@ function nonFriends(name, array) {
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//updateObject() : Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. If <key> does not exist on <object> create it.
 function updateObject(object, key, value) {
+object.key = value;
 
 }
 
