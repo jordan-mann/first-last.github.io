@@ -2,15 +2,21 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//objectValues() : Should take an object and return its values in an array
 function objectValues(object) {
-
+return Object.values(object);
 } 
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//keysToString() : Should take an object and return all its keys in a string each separated with a space
 function keysToString(object) {
+
+var array = Object.keys(object);
+return array.join(' ');
+
 
 }
 
@@ -18,39 +24,70 @@ function keysToString(object) {
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//valuesToString() : Should take an object and return all its string values in a string each separated with a space 
 function valuesToString(object) {
-    
+    var array = Object.values(object);
+    for (var i = 0; i < array.length; i++) {
+        if (typeof array[i] === 'string') {
+            return i + ' ';
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//arrayOrObject() : Should take one argument and return 'array' if its an array and 'object' if its an object
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection)) {
+        return 'array';
+    } else if (collection !== null && !(Array.isArray(collection)) && !(collection instanceof Date)) {
+        return 'object';
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//capitalizeWord() : Should take a string of one word, and return the word with its first letter capitalized
 function capitalizeWord(string) {
-    
+
+var string2  = string.charAt(0).toUpperCase() + string.slice(1);
+
+return string2;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//capitalizeAllWords() : Should take a string of words and return a string with all the words capitalized
 function capitalizeAllWords(string) {
-    
+   var array = string.split(' ');
+
+   for (var i = 0; i < array.length; i++) {
+    array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1);
+   }
+
+   var string2 = array.join(' ');
+   return string2;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//welcomeMessage() : Should take an object with a name property and return 'Welcome <Name>!' 
 function welcomeMessage(object) {
+
+for (var key in object) {
+    var name = object[key].charAt(0).toUpperCase() + object[key].slice(1);
+  
+    return 'Welcome' + ' ' + name + '!';
+    }
+    
 
 }
 
@@ -58,13 +95,23 @@ function welcomeMessage(object) {
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//profileInfo() : Should take an object with a name an a species and return '<Name> is a <Species>'
 function profileInfo(object) {
+
+    for (var key in object) {
+
+        var name = object['name'].charAt(0).toUpperCase() + object['name'].slice(1);
+        var species = object['species'].charAt(0).toUpperCase() + object['species'].slice(1);
+        return name + ' ' + 'is a' + ' ' + species;
+    }
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+//maybeNoises() : Should take an object, if this object has a noises array return them as a string separated by a space, if there are no noises return 'there are no noises'
 
 function maybeNoises(object) {
 
