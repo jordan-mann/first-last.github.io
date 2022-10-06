@@ -115,28 +115,50 @@ function profileInfo(object) {
 
 function maybeNoises(object) {
 
+    //use if statement to check if noises array contains any values
+    if (object.noises.length > 0) {
+        //if the noises array contains a value, return message
+        return object.noises.join(' ');
+        //use else if statement in case the noises array has no values
+    } else if (object.noises.length === 0) {
+        //if the noises array has no values, return  message
+        return 'there are no noises';
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//hasWord() : Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false.
 function hasWord(string, word) {
 
+    var array = string.split(' ');
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+            return true;
+        }
+    }
+    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//addFriend() : Should take a name and an object and add the name to the object's friends array then return the object
 function addFriend (name, object) {
-
+    //use push method to add name to friends array in object
+object.friends.push(name);
+//return object
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//isFriend() : Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
 function isFriend(name, object) {
 
 }
