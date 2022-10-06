@@ -120,21 +120,18 @@ function profileInfo(object) {
 
 function maybeNoises(object) {
 
-    var noiseString = '';
+   var noiseString = '';
     
-      //use if statement to check if noises array contains any values
-      if (object.noises.length > 0) {
-          //if the noises array contains a value, return message
-         noiseString += object.noises.join(' ');
+      //use if statement to check if noises exists as a a property in the object
+      //and if so, if the property is an array, and if so, if it contains any values
+      if (object.hasOwnProperty('noises') && Array.isArray(object.noises) && object.noises.length > 0) {
+          //if the noises array contains a value, return message joined in a string
+         noiseString = object.noises.join(' ');
           return noiseString;
-          //use else if statement in case the noises array has no values
-      } else if (object.noises.length === 0 || object.hasOwnProperty(noises) === false) {
-          //if the noises array has no values, return  message
-          return 'there are no noises';
       }
-    //console.log(noiseString);
-    
-  }
+      //if there is no array of noises, or the array is empty
+      return 'there are no noises'
+    }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
@@ -144,12 +141,11 @@ function maybeNoises(object) {
 function hasWord(string, word) {
 
     var array = string.split(' ');
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] === word) {
-            return true;
-        }
+    if (array.includes(word)) {
+        return true;
+    }else {
+        return false;
     }
-    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -169,23 +165,18 @@ return object;
 //////////////////////////////////////////////////////////////////////
 
 //isFriend() : Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
-function isFriend(name, object) {
+function isFriend(name, object) { 
 
-    
-//use a for loop to iterate through the names in the friends array
-for (var i = 0; i < object.friends.length; i++) {
-//use if statement to test if name is friend of object
-if (name === object.friends[i]) {
-    //return true
-    return true; 
-}else if (object.friends === 0) {
-    return false;
+   if(Array.isArray(object.friends) && object.hasOwnProperty('friends')) {
+    for (var i = 0; i < object.friends.length; i++) {
+        if (name === object.friends[i]) {
+            return true;
+        }
+    }
+   }
+   return false;
 }
-
-}
-    //return false
-    return false;
-}
+  
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
@@ -194,19 +185,62 @@ if (name === object.friends[i]) {
 //nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with
 function nonFriends(name, array) {
 
-//create variable notFriends as an empty array
-let notFriends = [];
-//use for loop to iterate through list of people
-for (var i = 0; i < array.length; i++) {
-    for (var j = 0; j < object.friends.length; j++) {
+// var nameFriends = [];
+// var nonFriends = [];
 
-        //use if statement to test if people are not friends
-    if (array[i] !== object.friends[j]) {
-        notFriends.push(array[i]);
-    }
-    }
-}
-return notFriends;
+// for (var a = 0; a < object.friends.length; a++){
+// for (var i = 0; i < array.length; i++) {
+//     if (object.friends[a] === (array[i].name)) {
+//         nameFriends.push(array[i].name);
+
+//     }else if (object.friends[a] !== (array[i].name)) {
+//         nonFriends.push(array[i].name);
+     
+//     }
+  
+// }
+// }
+// return nonFriends;
+
+
+// var nameList = [];
+// var result = [];
+// var current = null;
+
+// for (var i = 0; i < array.length; i++) {
+//     if (name === array[i].name) {
+//         current = array[i];
+//     } else {
+//         nameList.push(array[i].name);
+//     }
+// }
+//     if (current === null) {
+//         return nameList;
+//     }
+//     for (var i = 0; i < nameList.length; i++) {
+//         if (current.friends.indexOf(nameList[i] === -1)) {
+//             result.push(nameList[i]);
+//         }
+//     }
+//     return result;
+
+
+
+
+
+// //create variable notFriends as an empty array
+// let notFriends = [];
+// //use for loop to iterate through list of people
+// for (var i = 0; i < array.length; i++) {
+//     for (var j = 0; j < object.friends.length; j++) {
+
+//         //use if statement to test if people are not friends
+//     if (array[i] !== object.friends[j]) {
+//         notFriends.push(array[i]);
+//     }
+//     }
+// }
+// return notFriends;
 
 }
 
