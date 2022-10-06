@@ -26,12 +26,17 @@ return array.join(' ');
 
 //valuesToString() : Should take an object and return all its string values in a string each separated with a space 
 function valuesToString(object) {
+
+
     var array = Object.values(object);
+    var array2 = [];
+    var string = '';
     for (var i = 0; i < array.length; i++) {
         if (typeof array[i] === 'string') {
-            return i + ' ';
-        }
+            array2.push(array[i]);
+      }
     }
+    return string += array2.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -115,16 +120,21 @@ function profileInfo(object) {
 
 function maybeNoises(object) {
 
-    //use if statement to check if noises array contains any values
-    if (object.noises.length > 0) {
-        //if the noises array contains a value, return message
-        return object.noises.join(' ');
-        //use else if statement in case the noises array has no values
-    } else if (object.noises.length === 0) {
-        //if the noises array has no values, return  message
-        return 'there are no noises';
-    }
-}
+    var noiseString = '';
+    
+      //use if statement to check if noises array contains any values
+      if (object.noises.length > 0) {
+          //if the noises array contains a value, return message
+         noiseString += object.noises.join(' ');
+          return noiseString;
+          //use else if statement in case the noises array has no values
+      } else if (object.noises.length === 0 || object.hasOwnProperty(noises) === false) {
+          //if the noises array has no values, return  message
+          return 'there are no noises';
+      }
+    //console.log(noiseString);
+    
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
