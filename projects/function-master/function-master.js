@@ -186,29 +186,37 @@ function isFriend(name, object) {
 function nonFriends(name, array) {
 //array is an array of objects
 
+var notFriends = [];
+var nameObject = {}; //{name: 'Liza', friends: ['Jimmy']};
+var contacts = []; //['Jimmy', 'Bob', 'Sara'];
 
-    var nameList = [];
-    var notFriends = [];
-    var current = null;
-    for(var i=0; i<array.length; i++){
-        if(name === array[i].name){
-            current = array[i];
-        }else{
-            nameList.push(array[i].name);
-        }
+//Loop through array
+  for (var i = 0; i < array.length; i++) {
+
+    //if name is strictly equal to the name at the array index then assign that index
+    // (which is an object) to a variable called nameObject
+    if (name === array[i].name) {
+      nameObject = array[i];
+
+      //if the name is not strictly equal to the name at the array index, 
+      //then push the name into the contacts array
+  } else if (name !== array[i].name) {
+    contacts.push(array[i].name);
+      }
     }
 
-    if(current === null){
-        return nameList;
-    }
+    //loop through the newly formed contacts array
+  for (var i = 0; i < contacts.length; i++) {
 
-    for(var i=0; i<nameList.length; i++){
-        if(current.friends.indexOf(nameList[i]) == -1){
-            notFriends.push(nameList[i]);
-        }
+    //use .includes() method to determine if the friends array in the nameObject includes the contact at the current index of the contacts array
+    //if false, push contact into array called notFriends
+    if (nameObject.friends.includes(contacts[i]) === false) {
+      notFriends.push(contacts[i]);
+      
     }
-
-    return notFriends;
+  }
+  //return notFriends inside the nonFriends function, but outside the for loops and if statements
+  return notFriends;
 }
 
 //////////////////////////////////////////////////////////////////////
