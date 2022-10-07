@@ -91,6 +91,7 @@ function add(array, object) {
     if (object.name.length > 0 && object.species.length > 0 && object.name === array[i].name) {
         //if an new animal has a new same as an existing animal, return null
         return null;
+        
         }
     //outside the for loop, return the animal added to the animals array. 
     return array.push(object);
