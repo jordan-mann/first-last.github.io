@@ -267,16 +267,26 @@ function updateObject(object, key, value) {
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//removeProperties() : Should take an object and an array of strings. Should remove any properties in <object> that are listed in <array> (2, 1, 3)
 function removeProperties(object, array) {
-
+    for (var i = 0; i < array.length; i) {
+        if (array[i] === object.hasOwnProperty()) {
+            delete 
+        }
+    }
+   
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//dedup() : Should take an array and return an array with all the duplicates removed
 function dedup(array) {
-
+    //create variable called unique and assign it to an array that uses a set
+    //method to create new array with duplicates removed
+    var unique = [...new Set(array)];
+    return unique;
 }
 
 //////////////////////////////////////////////////////////////////////
