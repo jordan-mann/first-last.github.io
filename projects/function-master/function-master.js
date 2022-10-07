@@ -184,65 +184,31 @@ function isFriend(name, object) {
 
 //nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with
 function nonFriends(name, array) {
-//array is an array of obejcts
-
-// var nameFriends = [];
-// var nonFriends = [];
-
-// for (var a = 0; a < object.friends.length; a++){
-// for (var i = 0; i < array.length; i++) {
-//     if (object.friends[a] === (array[i].name)) {
-//         nameFriends.push(array[i].name);
-
-//     }else if (object.friends[a] !== (array[i].name)) {
-//         nonFriends.push(array[i].name);
-     
-//     }
-  
-// }
-// }
-// return nonFriends;
+//array is an array of objects
 
 
-// var nameList = [];
-// var result = [];
-// var current = null;
+    var nameList = [];
+    var notFriends = [];
+    var current = null;
+    for(var i=0; i<array.length; i++){
+        if(name === array[i].name){
+            current = array[i];
+        }else{
+            nameList.push(array[i].name);
+        }
+    }
 
-// for (var i = 0; i < array.length; i++) {
-//     if (name === array[i].name) {
-//         current = array[i];
-//     } else {
-//         nameList.push(array[i].name);
-//     }
-// }
-//     if (current === null) {
-//         return nameList;
-//     }
-//     for (var i = 0; i < nameList.length; i++) {
-//         if (current.friends.indexOf(nameList[i] === -1)) {
-//             result.push(nameList[i]);
-//         }
-//     }
-//     return result;
+    if(current === null){
+        return nameList;
+    }
 
+    for(var i=0; i<nameList.length; i++){
+        if(current.friends.indexOf(nameList[i]) == -1){
+            notFriends.push(nameList[i]);
+        }
+    }
 
-
-
-
-// //create variable notFriends as an empty array
-// let notFriends = [];
-// //use for loop to iterate through list of people
-// for (var i = 0; i < array.length; i++) {
-//     for (var j = 0; j < object.friends.length; j++) {
-
-//         //use if statement to test if people are not friends
-//     if (array[i] !== object.friends[j]) {
-//         notFriends.push(array[i]);
-//     }
-//     }
-// }
-// return notFriends;
-
+    return notFriends;
 }
 
 //////////////////////////////////////////////////////////////////////
