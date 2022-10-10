@@ -127,3 +127,99 @@ function compare(a, b) {
     }
     
     console.log(compare(5, 2)); // expect undefined, because the function does not include a return value.
+
+
+
+
+// 7. Array
+// An array is a collection of individual data pieces, separated by commas. Data pieces in an array can be simple data tpes like strings and numbers, or complex
+// data types like other arrays, or objects.
+// Arrays are formed between brackets '[]'.
+// Arrays can be manipulated in different ways to add, remove, or alter the data they contain.
+// Each item in an array is indexed, with the first element starting at 0.
+
+var thingsOnMyDesk = ['computer', 'coffee', 'monitor', 'phone']; // this array is collection of strings
+
+thingsOnMyDesk.push('lamp'); //The .push method is one of the ways an array can be manipulated to add more data to it. 
+// thingsOnMyDesk now looks like this: ['computer', 'coffee', 'monitor', 'phone', 'lamp'];
+
+var contactList = [{name: 'Bill', age: 40}, {name: 'Zach', age: 30}, {name: 'Bob', age: 35}]; //This is an example of an array holding a list of complex data types, 
+// specifically a list of objects.
+
+
+
+
+// 8. Object
+// An object is a complex data type that collects individual data pieces, but orders them into labeled values. Each value in an object is referred to by a key. Together,
+// they are called key/value pairs.
+// Object values can be simple, or they can contain arrays or other objects
+// In order to access an object's values, dot notation or bracket notation are needed.
+// Objects can be modified to remove, add, or change it's existing data.
+// Objects are formed between curly braces '{}'.
+
+var me = {name: 'Jordan', age: 31}; //This is an example of an object, with two key/value pairs. They keys are name and age. The values are 'Jordan', and 31.
+
+me.friends = ['Joe', 'Lauren', 'Zach']; // This code uses dot notation to access the me object and add a new key/value paire to it. The new key is freinds, and 
+// the value is an array holding the string values of 3 names.
+
+console.log(me); // excpect {name: 'Jordan', age: 31, friends: ['Joe', 'Lauren', 'Zach']}
+
+
+
+
+// 9. Function
+// A function is a data type that takes in values, performs and action or actions on the values, and returns an output
+// Input data ===> function performs it's actions ===> output data.
+// Functions general take arguments, which are the values pass in, an usually includes a return statement. Neither arguments or return are required though.
+// Functions generally follow the following format:
+//       function functionName(input) {
+//              function internal code where the magic happens
+//                  return output
+//              }
+//
+// Functions can either be created through a function declaration by writing in the format "function functionName() {}", or they can be create by a function expression
+// byt assignng the function to a variable in the format var thisFunction = functionName() {};
+//
+// The difference in these two methods lie in how hoisting acts on them.
+//
+// In defining a function, parameters are used in place of arguments, if the function takes arguments. Parameters are place holders for futuer arguments.
+// To utilzed a function, the function must be called. To call a function, writed the function with any arguments it takes.
+
+function add(a,b) {
+    return a + b;
+}
+// This is a function created via a function declaration. It will take two arguments, currently represended by the parameters a and b.
+// The action the function performs is to add the passed in arguments together and return the result.
+
+console.log(add(5, 7));
+// This is a function call that calls the above function add(). The arguments passed in in place of the parameters are 5 and 7. This function call is wrapped inside of
+// a console.log object, meaning it will first call the function to perform it's action, and then print the result to the console.
+// Expect the result printed to the console to be 12, since the function added 5 and 7 together.
+
+function fizzBuzz() { // function declare and called fizzBuzz(). This function does not take any paramters, meaning it will not take arguments. It is a function
+                      // that contains a block of code that performs a specified action
+
+    for (var i = 1; i <= 15; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+        console.log('fizzbuzz');
+      }else if (i % 3 === 0) {
+        console.log('fizz');
+      }else if (i % 5 === 0) {
+        console.log('buzz');
+      }else {
+        console.log(i);
+      }
+    }
+  }
+  console.log(fuzzBuzz()); //Expect: 1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14, fuzzbuzz  undefined.
+
+  // The last console log include a function call that has fizzBuzz() begin its action. The for loop contains the range of numbers the function is working with.
+  // Each conditional statement sets out what the output should be for each number in the range, and prints it to the console when the function was invoked.
+  // undefined is printed to the console at the end because this function has no return value.
+
+
+
+
+  // 10. Infinity and -Infinity
+  // Positive integers greater than the max number value possible are converted to +Infinity
+  // Negative integers smaller than the minimum number value possible are converted to -Infinity
