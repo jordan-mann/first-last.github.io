@@ -16,13 +16,17 @@ function fizzBuzz() {
 for (var i = 1; i <= 100; i++) {
 
     //The for loop will iterate through an if else if statement to print different values to the console
-
+    //use if statement and remainder 3, as well as && operator and remainder 5 to determine if number is divisible by 3 and 5
 if (i % 3 === 0 && i % 5 === 0) {
     //console log message
     console.log('FizzBuzz');
+
+    //use if statement and remainder 3 to determine if number is divisible by 3 only
 }else if (i % 3 === 0) {
     //console log message
     console.log('Fizz');
+
+    //use statement and remainder 5 to determine if number is divisible by 5 only.
 }else if (i % 5 === 0) {
     //console log message
     console.log('Buzz');
