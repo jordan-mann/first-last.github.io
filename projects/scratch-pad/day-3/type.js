@@ -107,9 +107,12 @@ function typeOf(value) {
     if (typeof value === 'string') {
         return 'string';
     }
+
+    //for arrays, use Array.isArray() method
     else if (Array.isArray(value)) {
         return 'array';
     }
+    //for objects, we need to exclude arrays, using Array.isArray(), null, and date
     else if (typeof value === 'object'  && !(Array.isArray(value)) && value !== null && !(value instanceof Date)) {
         return 'object';
     }
@@ -122,12 +125,14 @@ function typeOf(value) {
     else if (typeof value === 'boolean') {
         return 'boolean';
     }
+    //for null we need to exlude arrays and dates and previously defined objects
     else if(value === null && value !== 'object' && !(Array.isArray(value)) && !(value instanceof Date)) {
         return 'null';
     }
     else if (typeof value === 'function') {
         return 'function';
     }
+    //for dates we need to exclude arrays, null and previously defined objects
     else if (value instanceof Date && value !== 'object' && !(Array.isArray(value)) && value !== null) {
         return 'date';
     }
