@@ -221,5 +221,15 @@ function fizzBuzz() { // function declare and called fizzBuzz(). This function d
 
 
   // 10. Infinity and -Infinity
+  // Infiniy and -Infinity are special number data types that represent inginity, numbers that are bigger or smaller than any other number.
   // Positive integers greater than the max number value possible are converted to +Infinity
   // Negative integers smaller than the minimum number value possible are converted to -Infinity
+
+  // The limit of a Javascript numbers is 1.797693134862315E+308. Anything larger than this is Infinity
+  // The limit of negative Javascript number is -1.797693134862315E+308. Anything smaller than this is -Infinity.
+
+var x = 1.797693134862315E+308;
+
+var y = 1.797693134862315E+308 * 1.1;
+
+console.lot(y); // expect Infinity, because 1.797693134862315E+308 * 1.1 is greater than 1.797693134862315E+308, and is therefore given the value of Ininity.
