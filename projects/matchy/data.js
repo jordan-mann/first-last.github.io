@@ -146,6 +146,7 @@ var friends = [];
 //write a function called getRandom that takes our animals array and returns
 //a random index of the input array, using Math.random
 
+//create varialbe randomAnimal
 var randomAnimal
 
 function getRandom(animals) {
