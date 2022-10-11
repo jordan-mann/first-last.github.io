@@ -21,6 +21,11 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
+//function identity takes a value and returns the value unchanged
+_.identity = function(value) {
+    return value;
+}
+
 
 /** _.typeOf
 * Arguments:
@@ -42,6 +47,29 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
+//function typeOf takes any value as an argument
+//use typeof method, logical operators, Array.isArray() method and instanceof Date to determine the type of the input value nd return that value as a string
+_.typeOf = function(value) {
+    if (typeof value === 'string'){
+        return 'string';
+      } else if (typeof value === 'number') {
+        return 'number';
+      } else if (typeof value === 'boolean') {
+        return 'boolean';
+      } else if (typeof value === 'undefined') {
+        return 'undefined';
+      } else if (Array.isArray(value)) {
+        return 'array';
+      } else if (typeof value === 'object' && value !== null && !(Array.isArray(value)) && !(value instanceof Date)) {
+        return 'object';
+      } else if (value === null && value !== 'object' && !(Array.isArray(value)) && !(value instanceof Date)) {
+        return 'null';
+      } else if (typeof value === 'function') {
+        return 'function';
+      }
+     
+}
+
 
 /** _.first
 * Arguments:
@@ -61,6 +89,29 @@ var _ = {};
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(array, number) {
+
+    let newArray = [];
+
+if (number < 0) {
+    return [];
+  }
+  if (number > array.length) {
+    return array;
+  }
+  
+  if (!(Array.isArray(array))) {
+    return [];
+  } else if (typeof number !== 'number') {
+    return array[0];
+  }
+  for (let i = 0; i < number; i++) {
+    newArray.push(array[i]);
+    
+  }
+  return newArray;
+}
+
 
 /** _.last
 * Arguments:
@@ -79,7 +130,26 @@ var _ = {};
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
+_.last = function(array, number) {
 
+let newArray = [];
+
+  if (number < 0) {
+    return [];
+  }
+  if (number > array.length) {
+    return array;
+  }
+  if (!(Array.isArray(array))) {
+    return [];
+  } else if (typeof number !== 'number') {
+    return array[array.length - 1];
+  } 
+
+  newArray = array.slice(-number);
+
+  return newArray;
+}
 
 /** _.indexOf
 * Arguments:
@@ -97,6 +167,11 @@ var _ = {};
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value) {
+    return array.indexOf(value);
+}   
+   
+
 
 /** _.contains
 * Arguments:
@@ -113,6 +188,9 @@ var _ = {};
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value) {
+return array.includes(value) ? true : false;
+}
 
 /** _.each 
 * Arguments:
