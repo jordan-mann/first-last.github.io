@@ -132,8 +132,8 @@ function compare(a, b) {
 
 
 // 7. Array
-// An array is a collection of individual data pieces, separated by commas. Data pieces in an array can be simple data tpes like strings and numbers, or complex
-// data types like other arrays, or objects.
+// An array is a collection of individual data pieces, separated by commas. Data pieces in an array can be simple data types 
+// like strings and numbers, or complex data types like other arrays, or objects.
 // Arrays are formed between brackets '[]'.
 // Arrays can be manipulated in different ways to add, remove, or alter the data they contain.
 // Each item in an array is indexed, with the first element starting at 0.
