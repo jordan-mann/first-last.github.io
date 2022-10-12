@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+//const { map } = require("lodash");
+
 var _ = {}; 
 
 
@@ -23,7 +25,7 @@ var _ = {};
 
 //function identity takes a value and returns the value unchanged
 _.identity = function(value) {
-    return value;
+  return value;
 }
 
 
@@ -50,24 +52,23 @@ _.identity = function(value) {
 //function typeOf takes any value as an argument
 //use typeof method, logical operators, Array.isArray() method and instanceof Date to determine the type of the input value nd return that value as a string
 _.typeOf = function(value) {
-    if (typeof value === 'string'){
-        return 'string';
-      } else if (typeof value === 'number') {
-        return 'number';
-      } else if (typeof value === 'boolean') {
-        return 'boolean';
-      } else if (typeof value === 'undefined') {
-        return 'undefined';
-      } else if (Array.isArray(value)) {
-        return 'array';
-      } else if (typeof value === 'object' && value !== null && !(Array.isArray(value)) && !(value instanceof Date)) {
-        return 'object';
-      } else if (value === null && value !== 'object' && !(Array.isArray(value)) && !(value instanceof Date)) {
-        return 'null';
-      } else if (typeof value === 'function') {
-        return 'function';
-      }
-     
+  if (typeof value === 'string'){
+      return 'string';
+    } else if (typeof value === 'number') {
+      return 'number';
+    } else if (typeof value === 'boolean') {
+      return 'boolean';
+    } else if (typeof value === 'undefined') {
+      return 'undefined';
+    } else if (Array.isArray(value)) {
+      return 'array';
+    } else if (typeof value === 'object' && value !== null && !(Array.isArray(value)) && !(value instanceof Date)) {
+      return 'object';
+    } else if (value === null && value !== 'object' && !(Array.isArray(value)) && !(value instanceof Date)) {
+      return 'null';
+    } else if (typeof value === 'function') {
+      return 'function';
+    }
 }
 
 
@@ -91,25 +92,25 @@ _.typeOf = function(value) {
 
 _.first = function(array, number) {
 
-    let newArray = [];
+  let newArray = [];
 
 if (number < 0) {
-    return [];
-  }
-  if (number > array.length) {
-    return array;
-  }
+  return [];
+}
+if (number > array.length) {
+  return array;
+}
+
+if (!(Array.isArray(array))) {
+  return [];
+} else if (typeof number !== 'number') {
+  return array[0];
+}
+for (let i = 0; i < number; i++) {
+  newArray.push(array[i]);
   
-  if (!(Array.isArray(array))) {
-    return [];
-  } else if (typeof number !== 'number') {
-    return array[0];
-  }
-  for (let i = 0; i < number; i++) {
-    newArray.push(array[i]);
-    
-  }
-  return newArray;
+}
+return newArray;
 }
 
 
@@ -134,21 +135,21 @@ _.last = function(array, number) {
 
 let newArray = [];
 
-  if (number < 0) {
-    return [];
-  }
-  if (number > array.length) {
-    return array;
-  }
-  if (!(Array.isArray(array))) {
-    return [];
-  } else if (typeof number !== 'number') {
-    return array[array.length - 1];
-  } 
+if (number < 0) {
+  return [];
+}
+if (number > array.length) {
+  return array;
+}
+if (!(Array.isArray(array))) {
+  return [];
+} else if (typeof number !== 'number') {
+  return array[array.length - 1];
+} 
 
-  newArray = array.slice(-number);
+newArray = array.slice(-number);
 
-  return newArray;
+return newArray;
 }
 
 /** _.indexOf
@@ -168,9 +169,9 @@ let newArray = [];
 */
 
 _.indexOf = function(array, value) {
-    return array.indexOf(value);
+  return array.indexOf(value);
 }   
-   
+ 
 
 
 /** _.contains
@@ -211,21 +212,21 @@ return array.includes(value) ? true : false;
 _.each = function(collection, func) {
 //determine if collection is array
 if (Array.isArray(collection)) {
-    //iterate through collection useing for loop
-    for (var i = 0; i < collection.length; i++) {
-        //call the input func on each element
-        //func(//current element, current index, array)
-        func(collection[i], i, collection);
-    }
+  //iterate through collection useing for loop
+  for (var i = 0; i < collection.length; i++) {
+      //call the input func on each element
+      //func(//current element, current index, array)
+      func(collection[i], i, collection);
+  }
 }
-    /// else it's an object
-    //iterate through collection using for in loop
+  /// else it's an object
+  //iterate through collection using for in loop
 else {
-    for (let key in collection) {
-        func(collection[key], key, collection);
+  for (let key in collection) {
+      func(collection[key], key, collection);
 }
-    
-   
+  
+ 
 
 
 
@@ -243,13 +244,13 @@ else {
 */
 
 _.unique = function(array) {
- let newArray = [];
- for (let i = 0; i < array.length; i++) {
-  if (newArray.indexOf(array[i]) === -1 && array[i] !== '' )
-    newArray.push(array[i])
-  
- }
- return newArray;
+let newArray = [];
+for (let i = 0; i < array.length; i++) {
+if (newArray.indexOf(array[i]) === -1 && array[i] !== '' )
+  newArray.push(array[i])
+
+}
+return newArray;
 }
 
 
@@ -271,12 +272,12 @@ _.unique = function(array) {
 
 
 _.filter = function(array, func) {
-  let newArray = [];
-  for (let i = 0; i < array.length; i++) {
+let newArray = [];
+for (let i = 0; i < array.length; i++) {
 
-      if (func(array[i], i, array)) newArray.push(array[i]); 
-    }
-    return newArray;
+    if (func(array[i], i, array)) newArray.push(array[i]); 
+  }
+  return newArray;
 }
 
 
@@ -297,13 +298,13 @@ _.filter = function(array, func) {
 */
 
 _.reject = function(array, func) {
-  let newArray = [];
-  for (let i = 0; i < array.length; i++) {
-    if (!(func(array[i], i, array))) newArray.push(array[i]);
-    
-    }
-    return newArray;
+let newArray = [];
+for (let i = 0; i < array.length; i++) {
+  if (!(func(array[i], i, array))) newArray.push(array[i]);
+  
   }
+  return newArray;
+}
 
 
 
@@ -328,27 +329,27 @@ _.reject = function(array, func) {
 
 _.partition = function(array, func) {
 
-  let truthyArray = [];
-  let falsyArray = [];
-  let newArray = [];
-  
-  for (let i = 0; i < array.length; i++){
-  
-    if  (func(array[i], i, array) === true) {
-      truthyArray.push(array[i]);
-  
-    } else {
-      falsyArray.push(array[i]);
-    }
-  
-    }
-   newArray.push(truthyArray);
-   newArray.push(falsyArray);
-  
-  
-    return newArray;
+let truthyArray = [];
+let falsyArray = [];
+let newArray = [];
+
+for (let i = 0; i < array.length; i++){
+
+  if  (func(array[i], i, array) === true) {
+    truthyArray.push(array[i]);
+
+  } else {
+    falsyArray.push(array[i]);
   }
-  
+
+  }
+ newArray.push(truthyArray);
+ newArray.push(falsyArray);
+
+
+  return newArray;
+}
+
 
 /** _.map
 * Arguments:
@@ -368,19 +369,19 @@ _.partition = function(array, func) {
 
 _.map = function(collection, func) {
 
-  let newArray1 = [];
+let newArray1 = [];
 
 //if collection is array
 if (Array.isArray(collection)) {
-  for (let i = 0; i < collection.length; i++) {
-    newArray1.push(func(collection[i], i, collection)); 
-    }
-   
-  } else {
-  for (let key in collection) {
-    newArray1.push(func(collection[key], key, collection));
-    }    
+for (let i = 0; i < collection.length; i++) {
+  newArray1.push(func(collection[i], i, collection)); 
   }
+ 
+} else {
+for (let key in collection) {
+  newArray1.push(func(collection[key], key, collection));
+  }    
+}
 return newArray1;
 }
 
@@ -397,18 +398,11 @@ return newArray1;
 */
 
 _.pluck = function(array, property) {
-
-for (let i = 0; i < array.length; i++) {
-  for (let key in array[i]) {
-      _.map(array, func(key));
-    //if (array[i][key] === property) {
-      
-    
-  }
+  return _.map(array, function(i){
+    return i[property];
+  }) 
 }
 
-
-}
 
 /** _.every
 * Arguments:
@@ -433,36 +427,36 @@ for (let i = 0; i < array.length; i++) {
 
 
 _.every = function(collection, func) {
-  if (func === undefined) {
-    if (Array.isArray(collection)) {
-      for (let i = 0; i < collection.length; i++) {
-        if (!collection[i]) {
-          return false;
-        }
-      }
-    }else {
-      for (let key in collection) {
-        if (!collection[key]) {
-          return false;
-        }
+if (func === undefined) {
+  if (Array.isArray(collection)) {
+    for (let i = 0; i < collection.length; i++) {
+      if (!collection[i]) {
+        return false;
       }
     }
   }else {
-    if (Array.isArray(collection)) {
-      for (let i = 0; i < collection.length; i++) {
-        if (func(collection[i], i, collection) === false) {
-          return false;
-        }
-      }
-    }else {
-      for (let key in collection) {
-        if (func(collection[key], key, collection) ===  false) {
-          return false;
-        }
+    for (let key in collection) {
+      if (!collection[key]) {
+        return false;
       }
     }
   }
-  return true;
+}else {
+  if (Array.isArray(collection)) {
+    for (let i = 0; i < collection.length; i++) {
+      if (func(collection[i], i, collection) === false) {
+        return false;
+      }
+    }
+  }else {
+    for (let key in collection) {
+      if (func(collection[key], key, collection) ===  false) {
+        return false;
+      }
+    }
+  }
+}
+return true;
 }
 
 
@@ -490,33 +484,33 @@ _.every = function(collection, func) {
 _.some = function(collection, func) {
 
 if (func === undefined) {
-  if(Array.isArray(collection)) {
-    for (let i = 0; i < collection.length; i++) {
-      if(collection[i]) {
-        return true;
-      }
-    }
-  }else {
-    for (let key in collection) {
-      if (collection[key]) {
-        return true;
-      }
+if(Array.isArray(collection)) {
+  for (let i = 0; i < collection.length; i++) {
+    if(collection[i]) {
+      return true;
     }
   }
 }else {
-  if (Array.isArray(collection)) {
-    for (let i = 0; i < collection.length; i++) {
-      if (func(collection[i], i, collection) === true) {
-        return true;
-      }
-    }
-  }else {
-    for (let key in collection) {
-      if (func(collection[key], key, collection) === true) {
-        return true;
-      }
+  for (let key in collection) {
+    if (collection[key]) {
+      return true;
     }
   }
+}
+}else {
+if (Array.isArray(collection)) {
+  for (let i = 0; i < collection.length; i++) {
+    if (func(collection[i], i, collection) === true) {
+      return true;
+    }
+  }
+}else {
+  for (let key in collection) {
+    if (func(collection[key], key, collection) === true) {
+      return true;
+    }
+  }
+}
 }
 return false;
 }
