@@ -536,6 +536,70 @@ return false;
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed) {
+
+  //Edge case: what if seed is not give?
+  //if no seed is given, use the first element of the collection as the seed. First element (array[0]) = seed. 
+  //On the first iteration, use seed as previous result (preResult). see = preResult. seed = first element. preResult = first element (array[0])
+  //How do we know if seed is not given? If seed is undefined.
+  if (seed === undefined) {
+    let preResult = array[0];
+      for (let i = 1; i < array.length; i++){   //Because on the very first iteration will will assign preResult to seed, we start this loop iterating at 1 index
+
+        //use the return value of func as the preResult = function call = preResult / return = preResult
+        preResult = func(preResult, array[i], i);
+      }
+      return preResult; 
+
+      //In the if statement above we tested if seed was given, and what to use if seed was not given.
+      //If see was not given, we use the first value of the array as the preResult value, rather than seed. 
+      //In the case that seed is given, we don't use the first value of the array as preResult. Rather we use seed as preResult.
+  }else {
+    let preResult = seed;
+      for (let i = 0; i < array.length; i++) {
+        preResult = func(preResult,array[i], i);
+      }
+      return preResult;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// _.reduce = function(array, func, seed) {
+//   if (seed === undefined) {
+//     let preResult = array[0];
+//           for (let i = 1; i < array.length; i++) {
+//            preResult = func(preResult, array[i], i);         
+//     }
+//     return preResult;
+
+//   }else {
+//     let preResult = seed; 
+//       for (let i = 0; i < array.length; i++) {
+//         preResult = func(preResult, array[i], i);
+//       }
+//       return preResult;
+//   }
+//   }
+
+
 
 /** _.extend
 * Arguments:
