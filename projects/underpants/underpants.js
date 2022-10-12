@@ -326,6 +326,29 @@ _.reject = function(array, func) {
 }
 */
 
+_.partition = function(array, func) {
+
+  let truthyArray = [];
+  let falsyArray = [];
+  let newArray = [];
+  
+  for (let i = 0; i < array.length; i++){
+  
+    if  (func(array[i], i, array) === true) {
+      truthyArray.push(array[i]);
+  
+    } else {
+      falsyArray.push(array[i]);
+    }
+  
+    }
+   newArray.push(truthyArray);
+   newArray.push(falsyArray);
+  
+  
+    return newArray;
+  }
+  
 
 /** _.map
 * Arguments:
@@ -343,6 +366,24 @@ _.reject = function(array, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, func) {
+
+  let newArray1 = [];
+
+//if collection is array
+if (Array.isArray(collection)) {
+  for (let i = 0; i < collection.length; i++) {
+    newArray1.push(func(collection[i], i, collection)); 
+    }
+   
+  } else {
+  for (let key in collection) {
+    newArray1.push(func(collection[key], key, collection));
+    }    
+  }
+return newArray1;
+}
+
 
 /** _.pluck
 * Arguments:
@@ -355,6 +396,19 @@ _.reject = function(array, func) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+_.pluck = function(array, property) {
+
+for (let i = 0; i < array.length; i++) {
+  for (let key in array[i]) {
+      _.map(array, func(key));
+    //if (array[i][key] === property) {
+      
+    
+  }
+}
+
+
+}
 
 /** _.every
 * Arguments:
@@ -432,6 +486,41 @@ _.every = function(collection, func) {
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+
+_.some = function(collection, func) {
+
+if (func === undefined) {
+  if(Array.isArray(collection)) {
+    for (let i = 0; i < collection.length; i++) {
+      if(collection[i]) {
+        return true;
+      }
+    }
+  }else {
+    for (let key in collection) {
+      if (collection[key]) {
+        return true;
+      }
+    }
+  }
+}else {
+  if (Array.isArray(collection)) {
+    for (let i = 0; i < collection.length; i++) {
+      if (func(collection[i], i, collection) === true) {
+        return true;
+      }
+    }
+  }else {
+    for (let key in collection) {
+      if (func(collection[key], key, collection) === true) {
+        return true;
+      }
+    }
+  }
+}
+return false;
+}
+
 
 
 /** _.reduce
