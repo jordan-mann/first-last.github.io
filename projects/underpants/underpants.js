@@ -565,42 +565,6 @@ _.reduce = function(array, func, seed) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// _.reduce = function(array, func, seed) {
-//   if (seed === undefined) {
-//     let preResult = array[0];
-//           for (let i = 1; i < array.length; i++) {
-//            preResult = func(preResult, array[i], i);         
-//     }
-//     return preResult;
-
-//   }else {
-//     let preResult = seed; 
-//       for (let i = 0; i < array.length; i++) {
-//         preResult = func(preResult, array[i], i);
-//       }
-//       return preResult;
-//   }
-//   }
-
-
-
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -615,6 +579,17 @@ _.reduce = function(array, func, seed) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(object1, ...moreObjects) {
+
+  for (let i = 0; i < moreObjects.length; i++) {
+
+    Object.assign(object1, moreObjects[i]);
+  }
+  
+return object1;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
