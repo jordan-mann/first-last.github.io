@@ -90,26 +90,36 @@ _.typeOf = function(value) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+//create a function that takes an array and a number
 _.first = function(array, number) {
 
+  //create a variable called newArray and assign it to an empty array
   let newArray = [];
 
+  //create an if statement to determine if number is negative
 if (number < 0) {
+  //if the number is negative, return an empty array
   return [];
 }
+  //create an if statement to determine if the number is greater than the length of the array
 if (number > array.length) {
+  //if the number is greater than the length of the array, return the array
   return array;
 }
-
+  //create an if statement using the Array.isArray() method and bang operator to determine if the array is actually and array, and if not, return an empty array
 if (!(Array.isArray(array))) {
   return [];
+  //use an else if statement and typeof method to determine if the number is actually a number. Use the not equal to. If it is not a number, return the first value of the array
 } else if (typeof number !== 'number') {
   return array[0];
 }
+//use a for loop to loop through the array and use the number as the range
 for (let i = 0; i < number; i++) {
+  //push each the iterated values into the newArray
   newArray.push(array[i]);
   
 }
+//return the newArray
 return newArray;
 }
 
@@ -131,24 +141,33 @@ return newArray;
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
+
+//create a function that takes an array and a number
 _.last = function(array, number) {
 
+//create a variable called newArray and assign it to an empty array
 let newArray = [];
 
+//create an if statement to determine if number is negative
 if (number < 0) {
+  //if the number is negative, return an empty array
   return [];
 }
+//create an if statement to determine if the number is greater than the length of the array
 if (number > array.length) {
+  //if the number is greater than the length of the array, return the array
   return array;
 }
+//create an if statement using the Array.isArray() method and bang operator to determine if the array is actually and array, and if not, return an empty array
 if (!(Array.isArray(array))) {
   return [];
+  //use an else if statement and typeof method to determine if the number is actually a number. Use the not equal to operator. If it is not a number, return the last value of the array
 } else if (typeof number !== 'number') {
   return array[array.length - 1];
 } 
-
+//use the slice method with -number input to remove the number argument from array and give the value of newArray
 newArray = array.slice(-number);
-
+//return newArray
 return newArray;
 }
 
@@ -583,12 +602,14 @@ _.reduce = function(array, func, seed) {
 _.extend = function(object1, ...moreObjects) {
 
   for (let i = 0; i < moreObjects.length; i++) {
-
     Object.assign(object1, moreObjects[i]);
+    }
+    return object1;
+    
   }
-  
-return object1;
-}
+
+
+
 
 
 //////////////////////////////////////////////////////////////////////
