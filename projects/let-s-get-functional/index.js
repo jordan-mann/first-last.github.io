@@ -75,7 +75,7 @@ var oldestCustomer =  function(array) {
  
    let oldestPerson = _.reduce(array, function(oldest, current, index, array) {
             
-        if((oldest.age || 0) > current.age) {
+        if(oldest.age > current.age) {
             return oldest;
         }
         return current;
@@ -83,17 +83,22 @@ var oldestCustomer =  function(array) {
            return oldestPerson.name; //return oldestPerson;
 };
 
-// _.filter = function(array, func) {
-//     let newArray = [];
-//     for (let i = 0; i < array.length; i++) {
-    
-//         if (func(array[i], i, array)) newArray.push(array[i]); 
-//       }
-//       return newArray;
-//     }
+
     
 
-var youngestCustomer;
+var youngestCustomer = function(array) {
+
+    let youngestPerson = _.reduce(array, function(youngest, current, index, arry) {
+        
+        if (youngest.age < current.age) {
+            return youngest;
+        }
+        return current;
+    });
+    return youngestPerson.name;
+};
+
+
 
 var averageBalance;
 
