@@ -73,14 +73,14 @@ var femaleCount = function(array) {
 var oldestCustomer =  function(array) {
 //     //find the oldest customer's name.
  
-   return _.reduce(array, function(oldest, current, index, array) {
+   let oldestPerson = _.reduce(array, function(oldest, current, index, array) {
             
         if((oldest.age || 0) > current.age) {
-            return oldest.name;
+            return oldest;
         }
-        return current.name;
+        return current;
 });
-            //return oldestPerson;
+           return oldestPerson.name; //return oldestPerson;
 };
 
 // _.filter = function(array, func) {
