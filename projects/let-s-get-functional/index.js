@@ -101,11 +101,11 @@ var youngestCustomer = function(array) {
 
 
 var averageBalance = function(array) {
-
+    
     let sum = _.reduce(customers, function(total, current, index, array) {
-        if (current.hasOwnProperty(balance) === true) {
-        return  total += current.balance.replace(/[$,]/g, '');
-        }
+       
+        return  total + Number(current.balance.replace(/[$,]/g, ''));
+        
     }, 0);
 
     return sum / customers.length;
