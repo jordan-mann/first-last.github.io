@@ -120,22 +120,56 @@ var averageBalance = function(array) {
 
 var firstLetterCount = function(array, letter) {
   
-   let letterCount = _.filter(array, function(current, index, array) {
+    let letterCount = _.filter(array, function(current, index, array) {
+ 
+     
+ 
+         return current.name.toLowerCase().charAt(0) === letter.toLowerCase();
+    })
+   
+    return letterCount.length;
+ };
 
-    
 
-        return current.name.toLowerCase().charAt(0) === letter.toLowerCase();
-   })
-  
-   return letterCount.length;
+
+
+var friendFirstLetterCount = function(array, customer, letter) {
+   
+    let customerObj = _.filter(array, function(arrayCustomer, index, array){
+        return arrayCustomer.name === customer}) [0];
+        
+        // Return zero if customer not found.
+        // (Up to you how you handle this, you might want an exception instead).
+        if (!customerObj) return 0;
+        
+        // Find all customer friends whose name starts with letter and return the length.
+        // return customerObj.friends.filter(friend => friend.name.startsWith(letter)).length;
+      
+      
+          let friendsNumber = _.filter(customerObj.friends, function(friend, index, array) {
+           return friend.name.toLowerCase().charAt(0) === letter.toLowerCase();
+      
+           
+          })
+        
+       return friendsNumber.length;
+      
+       
 };
 
 
 
 
-var friendFirstLetterCount;
 
-var friendsCount;
+var friendsCount; //= function(array, name) {
+
+//     let customerNames = _.filter(array, function(current, index, array) {
+
+//         for (let i = 0; i < ){}
+
+//     })
+
+// };
 
 var topThreeTags;
 
