@@ -404,7 +404,6 @@ for (let key in collection) {
 return newArray1;
 }
 
-
 /** _.pluck
 * Arguments:
 *   1) An array of objects

@@ -88,7 +88,7 @@ var oldestCustomer =  function(array) {
 
 var youngestCustomer = function(array) {
 
-    let youngestPerson = _.reduce(array, function(youngest, current, index, arry) {
+    let youngestPerson = _.reduce(array, function(youngest, current, index, array) {
         
         if (youngest.age < current.age) {
             return youngest;
@@ -100,9 +100,34 @@ var youngestCustomer = function(array) {
 
 
 
-var averageBalance;
+var averageBalance = function(array) {
 
-var firstLetterCount;
+    let sum = _.reduce(customers, function(total, current, index, array) {
+        if (current.hasOwnProperty(balance) === true) {
+        return  total += current.balance.replace(/[$,]/g, '');
+        }
+    }, 0);
+
+    return sum / customers.length;
+};
+
+
+
+
+
+var firstLetterCount = function(array, letter) {
+
+  
+
+};
+
+// _.pluck = function(array, property) {
+//     return _.map(array, function(i){
+//       return i[property];
+//     }) 
+//   }
+  
+
 
 var friendFirstLetterCount;
 
