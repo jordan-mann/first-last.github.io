@@ -36,6 +36,8 @@ var maleCount = function(array) {
     return males.length;
 };
 
+
+
 maleCount(customers);
 
 
@@ -102,12 +104,13 @@ var youngestCustomer = function(array) {
 
 var averageBalance = function(array) {
     
+    //use reduce to create a sum of all the balance values
     let sum = _.reduce(customers, function(total, current, index, array) {
-       
+       //return the seed (total) + current balance value, with special characters removed, and turned into a number using Number()
         return  total + Number(current.balance.replace(/[$,]/g, ''));
         
     }, 0);
-
+    //return the average by dividing sum by number of customers
     return sum / customers.length;
 };
 
@@ -116,7 +119,8 @@ var averageBalance = function(array) {
 
 
 var firstLetterCount = function(array, letter) {
-
+  
+   let letterCount = _.filter(array, function(current, index, array) )
   
 
 };
