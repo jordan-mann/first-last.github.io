@@ -120,17 +120,17 @@ var averageBalance = function(array) {
 
 var firstLetterCount = function(array, letter) {
   
-   let letterCount = _.filter(array, function(current, index, array) )
-  
+   let letterCount = _.filter(array, function(current, index, array) {
 
+    
+
+        return current.name.toLowerCase().charAt(0) === letter.toLowerCase();
+   })
+  
+   return letterCount.length;
 };
 
-// _.pluck = function(array, property) {
-//     return _.map(array, function(i){
-//       return i[property];
-//     }) 
-//   }
-  
+
 
 
 var friendFirstLetterCount;
