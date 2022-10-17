@@ -135,43 +135,61 @@ var firstLetterCount = function(array, letter) {
 
 var friendFirstLetterCount = function(array, customer, letter) {
    
-    let customerObj = _.filter(array, function(arrayCustomer, index, array){
-        return arrayCustomer.name === customer}) [0];
-        
-        // Return zero if customer not found.
-        // (Up to you how you handle this, you might want an exception instead).
-        if (!customerObj) return 0;
-        
-        // Find all customer friends whose name starts with letter and return the length.
-        // return customerObj.friends.filter(friend => friend.name.startsWith(letter)).length;
-      
-      
-          let friendsNumber = _.filter(customerObj.friends, function(friend, index, array) {
-           return friend.name.toLowerCase().charAt(0) === letter.toLowerCase();
-      
-           
-          })
-        
-       return friendsNumber.length;
-      
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].name === customer) {
+      let friendsWithLetter = _.filter(array[i].friends, function(current, index, array) {
+        return current.name.charAt(0).toLowerCase() ===  letter.toLowerCase()
+      });
+      return friendsWithLetter.length;
+    }
+    
+  }
+}  
+
+
+/*
+I: Array of customers and a customer name
+O: Array of other customers' names who have the input customer's name in their friends list
+C:
+E:
+
+*/
+
+var friendsCount = function(array, name) {
+
+  var friends = [];
+     
+  //Olga Newton is a customer. She is also a friend in the friends lists of Doyle Erickson and Doris Smith. 
+  //We want to return an array with the names of Doyle Erickson and Doris Smith
+  //var customerNames = [];
+      for (let i = 0; i < array.length; i ++) {
+        for (let j = 0; j < array[i].friends.length; j++) {
+          if (array[i].friends[j].name === name) {
+            friends.push(array[i].name);
+          }
+        }
        
+      
+      }
+  return friends;
+     
+   }
+   
+
+var topThreeTags = function(array) {
+
+var tagsArray = _.filter(array, function(current, index, array) {
+
+    return current.tags;
+
+});
+    return tagsArray;
+
 };
 
 
 
-
-
-var friendsCount; //= function(array, name) {
-
-//     let customerNames = _.filter(array, function(current, index, array) {
-
-//         for (let i = 0; i < ){}
-
-//     })
-
-// };
-
-var topThreeTags;
 
 var genderCount;
 
