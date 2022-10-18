@@ -156,30 +156,54 @@ E:
 
 */
 
-var friendsCount = function(array, name) {
-//create a variable called friends and assign it to an empty array
-  var friends = [];
+// var friendsCount = function(array, name) {
+// //create a variable called friends and assign it to an empty array
+//   var friends = [];
      
-  //Olga Newton is a customer. She is also a friend in the friends lists of Doyle Erickson and Doris Smith. 
-  //We want to return an array with the names of Doyle Erickson and Doris Smith
-  //var customerNames = [];
-  //create a for loop to iterate through the input array
-      for (let i = 0; i < array.length; i ++) {
-        //create a nested for loop to iterate through the friends array in each index of the input array. 
-        //Use dot notation to access the friends array inside each customer object of the input array
-        for (let j = 0; j < array[i].friends.length; j++) {
-          //create an if statement that compares the name of the currently iterated friend object to the input name
-          if (array[i].friends[j].name === name) {
-            //if the names match, us push() to push the name of the current iteration of the input array into the friends array.
-            friends.push(array[i].name);
-          }
-        } 
-      }
-  //return friends array
-  return friends;
+//   //Olga Newton is a customer. She is also a friend in the friends lists of Doyle Erickson and Doris Smith. 
+//   //We want to return an array with the names of Doyle Erickson and Doris Smith
+//   //var customerNames = [];
+//   //create a for loop to iterate through the input array
+//       for (let i = 0; i < array.length; i ++) {
+//         //create a nested for loop to iterate through the friends array in each index of the input array. 
+//         //Use dot notation to access the friends array inside each customer object of the input array
+//         for (let j = 0; j < array[i].friends.length; j++) {
+//           //create an if statement that compares the name of the currently iterated friend object to the input name
+//           if (array[i].friends[j].name === name) {
+//             //if the names match, us push() to push the name of the current iteration of the input array into the friends array.
+//             friends.push(array[i].name);
+//           }
+//         } 
+//       }
+//   //return friends array
+//   return friends;
      
-   }
+//    }
    
+
+   var friendsCount = function(array, name) {
+    var friends = _.filter(array, function(current, index, array) {
+      for (let i = 0; i < current.friends.length; i++) {
+          if (current.friends[i].name === name) {
+            return true;
+          }
+      }
+        return false;
+
+    })
+
+    var names = _.map(friends, function(current, index, array) {
+
+        return current.name;
+
+    })
+
+      return names;
+   }
+
+
+
+
 
 var topThreeTags = function(array) {
 
@@ -211,10 +235,22 @@ var tagsArray = _.filter(array, function(current, index, array) {
 
 */
 
-var genderCount;
+var genderCount = function(array) {
+  let genders = _.reduce(array, function(total, current, index, array) {
+    if (current.gender === 'male') {
+      total.male++
+    } if (current.gender === 'female') {
+      total.female++ 
+    } if (current.gender === 'nonbinary') {
+      total.nonbinary++
+    }
+    return total;
+  })
+  return genders;
+};
 
 
-seed = {male: 0, female: 0, nonbinary: 0}
+//seed = {male: 0, female: 0, nonbinary: 0}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
