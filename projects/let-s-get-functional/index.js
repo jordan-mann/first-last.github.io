@@ -205,17 +205,34 @@ E:
 
 
 
+
 var topThreeTags = function(array) {
-
-var tagsArray = _.filter(array, function(current, index, array) {
-
+  var tags = _.map(array, function(current, index, array) {
     return current.tags;
+  })
 
-});
-    return tagsArray;
+ var tagsFlat = tags.flat(1);
 
-};
+  console.log(tagsFlat);
 
+  var tagsCount = {};
+  
+  _.each(tagsFlat, function(current, index, array) {
+     tagsCount[current] = (tagsCount[current] || 0) + 1;
+    
+   })
+
+   tagsCount = Object.entries(tagsCount);
+
+  var tagsSorted = tagsCount.sort(function(a, b) {
+    return b[1] - a [1];
+  })
+
+  var topTags = _.first(tagsSorted, 3) 
+  
+  return topTags;
+  
+}
 
 
 
