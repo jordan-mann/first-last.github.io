@@ -229,12 +229,17 @@ var topThreeTags = function(array) {
   })
 
   var topTags = _.first(tagsSorted, 3) 
-  
-  return topTags;
+
+  var topTagNames = _.map(topTags, function(current, index, array) {
+    return current[0];
+  })
+   
+   
+   return topTagNames;
   
 }
 
-
+console.log(topThreeTags(customers));
 
 /*
 ### 10: `genderCount`
@@ -258,15 +263,16 @@ var genderCount = function(array) {
       total.male++
     } if (current.gender === 'female') {
       total.female++ 
-    } if (current.gender === 'nonbinary') {
-      total.nonbinary++
+    } if (current.gender === 'non-binary') {
+      total['non-binary']++
     }
     return total;
-  })
+  }, {male: 0, female: 0, 'non-binary': 0})
+  console.log(genders);
   return genders;
 };
 
-
+genderCount(customers);
 //seed = {male: 0, female: 0, nonbinary: 0}
 
 //////////////////////////////////////////////////////////////////////

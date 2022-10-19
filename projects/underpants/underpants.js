@@ -188,7 +188,20 @@ return newArray;
 */
 
 _.indexOf = function(array, value) {
-  return array.indexOf(value);
+
+  //use for loop to iterate through the input array
+  for (let i = 0; i < array.length; i++) {
+
+    //use if statement to test if current value === value
+    if (array[i] === value) {
+      //if true, return that index and end the function
+      return i;
+    }
+    
+  }
+  //if the value is not in the array, end the function by returning -1
+  return -1;
+
 }   
  
 
@@ -209,6 +222,8 @@ _.indexOf = function(array, value) {
 */
 
 _.contains = function(array, value) {
+
+  //use .includes with a ternary operator to test if the value is in the array. True if so, false otherwise.
 return array.includes(value) ? true : false;
 }
 
@@ -263,9 +278,15 @@ else {
 */
 
 _.unique = function(array) {
+  //create variable and assign it to an empty array
 let newArray = [];
+
+//use for loop to iterate through input array
 for (let i = 0; i < array.length; i++) {
+
+  //use if statement to test if if current value of array is not in the newArray && is not an empty string
 if (newArray.indexOf(array[i]) === -1 && array[i] !== '' )
+//if it passes both test, push that value into the newArray
   newArray.push(array[i])
 
 }
@@ -291,9 +312,14 @@ return newArray;
 
 
 _.filter = function(array, func) {
+  //create variable and assign it to an empty array
 let newArray = [];
+
+//iterate through the input array using for loop and call the input function for each element of the input array. 
+//The function should take the arguments of the current element, it's index, and the array
 for (let i = 0; i < array.length; i++) {
 
+  //use if statement to test if the function call returns a truthy value, and if so, push the value into newArray
     if (func(array[i], i, array)) newArray.push(array[i]); 
   }
   return newArray;
@@ -317,8 +343,14 @@ for (let i = 0; i < array.length; i++) {
 */
 
 _.reject = function(array, func) {
-let newArray = [];
+ //create variable and assign it to an empty array
+ let newArray = [];
+
+ //iterate through the input array using for loop and call the input function for each element of the input array. 
+//The function should take the arguments of the current element, it's index, and the array
 for (let i = 0; i < array.length; i++) {
+
+  //use if statement to test if the function call returns a falsy value, and if so, push the value into newArray
   if (!(func(array[i], i, array))) newArray.push(array[i]);
   
   }
@@ -348,24 +380,31 @@ for (let i = 0; i < array.length; i++) {
 
 _.partition = function(array, func) {
 
+  //create 3 variables, truthyArray, falsyArray, newArray, and assign each to an empty array
 let truthyArray = [];
 let falsyArray = [];
 let newArray = [];
 
+//use for loop to iterate through input array
 for (let i = 0; i < array.length; i++){
 
+  //use an if statement to test the input function's function call on each element of the input array
+  //the input function should take the arguments element, key, and array
+  //if the function call returns something truty, push that element into truthyArray
   if  (func(array[i], i, array) === true) {
     truthyArray.push(array[i]);
 
+  //use else statement to push all other elements (which are falsy) into the falsy array
   } else {
     falsyArray.push(array[i]);
   }
 
   }
+  //use the push method twice to push both truthyArray and falsyArray into newArray
  newArray.push(truthyArray);
  newArray.push(falsyArray);
 
-
+  //return newArray
   return newArray;
 }
 
