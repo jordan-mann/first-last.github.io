@@ -427,19 +427,27 @@ for (let i = 0; i < array.length; i++){
 
 _.map = function(collection, func) {
 
+  //create variable and assign it to an empty array
 let newArray1 = [];
 
 //if collection is array
 if (Array.isArray(collection)) {
+  //use for loop to iterate through the collection
 for (let i = 0; i < collection.length; i++) {
+  //the input function should be called for each element of the array
+  //for each function call, push the return into newArray
   newArray1.push(func(collection[i], i, collection)); 
   }
  
 } else {
+  //use for in loop if the collection is an object
 for (let key in collection) {
+   //the input function should be called for each value of the object
+  //for each function call, push the return into newArray
   newArray1.push(func(collection[key], key, collection));
   }    
 }
+//return newArray
 return newArray1;
 }
 
@@ -455,7 +463,9 @@ return newArray1;
 */
 
 _.pluck = function(array, property) {
+  //the return of pluch should be a function call of the map function
   return _.map(array, function(i){
+    //the map function will iterate through the input array of objects and retun the current element's value in a new array if the value's property equals the input property
     return i[property];
   }) 
 }
@@ -484,35 +494,50 @@ _.pluck = function(array, property) {
 
 
 _.every = function(collection, func) {
+  //test if input function is not given
 if (func === undefined) {
+  //test if input collection is an array
   if (Array.isArray(collection)) {
+    //loop through collection array
     for (let i = 0; i < collection.length; i++) {
+      //if not every element is truthy, return false
       if (!collection[i]) {
         return false;
       }
     }
+    //else if collection is an object
   }else {
+    //loop through each object key
     for (let key in collection) {
+      //if not every element is truty, return false
       if (!collection[key]) {
         return false;
       }
     }
   }
+  //else statement, if input function is given. 
 }else {
+  //If collection is array, input function takes current element of the collection, index and array
   if (Array.isArray(collection)) {
+    //loop through array
     for (let i = 0; i < collection.length; i++) {
+      //if statement to test if any element is false. If an element is false, return false 
       if (func(collection[i], i, collection) === false) {
         return false;
       }
     }
+    //else statement, if collection is object, input function takes current key value, key, and the collection
   }else {
     for (let key in collection) {
+      //for in loop to loop through collection object
+      //if any of the values are false, return false
       if (func(collection[key], key, collection) ===  false) {
         return false;
       }
     }
   }
 }
+//if none of the values have returned false before this, they  must all be true. Return true.
 return true;
 }
 
@@ -539,36 +564,50 @@ return true;
 */
 
 _.some = function(collection, func) {
-
+//test if input function is not given
 if (func === undefined) {
+   //test if input collection is an array
 if(Array.isArray(collection)) {
+  //loop through collection array
   for (let i = 0; i < collection.length; i++) {
+    //if not every  element is falsy, return true
     if(collection[i]) {
       return true;
     }
   }
+  //else if collection is an object
 }else {
+  //loop through each object key
   for (let key in collection) {
+    //if not every element is falsy, return true
     if (collection[key]) {
       return true;
     }
   }
 }
+//else statement, if input function is given. 
 }else {
-if (Array.isArray(collection)) {
+  //If collection is array, input function takes current element of the collection, index and array
+  if (Array.isArray(collection)) {
+    //loop through array
   for (let i = 0; i < collection.length; i++) {
+    //if statement to test if any element is true. If an element is true, return true
     if (func(collection[i], i, collection) === true) {
       return true;
     }
   }
+  //else statement, if collection is object, input function takes current key value, key, and the collection
 }else {
+   //for in loop to loop through collection object
   for (let key in collection) {
+     //if any of the values are true, return true
     if (func(collection[key], key, collection) === true) {
       return true;
     }
   }
 }
 }
+//if none of the values have returned true before this, they  must all be false. Return false.
 return false;
 }
 
@@ -599,11 +638,15 @@ _.reduce = function(array, func, seed) {
   //if no seed is given, use the first element of the collection as the seed. First element (array[0]) = seed. 
   //On the first iteration, use seed as previous result (preResult). see = preResult. seed = first element. preResult = first element (array[0])
   //How do we know if seed is not given? If seed is undefined.
-  if (seed === undefined) {
-    let preResult = array[0];
-      for (let i = 1; i < array.length; i++){   //Because on the very first iteration will will assign preResult to seed, we start this loop iterating at 1 index
 
-        //use the return value of func as the preResult = function call = preResult / return = preResult
+  //Create if statement to test is seed is given.
+  if (seed === undefined) {
+    //create variable and assign it to the first index of the input array
+    let preResult = array[0];
+    //use for loop to interate through input array
+      for (let i = 1; i < array.length; i++){   //Because on the very first iteration will assign preResult to seed, we start this loop iterating at 1 index
+
+        //use the return value of func as the preResult each time the function is called
         preResult = func(preResult, array[i], i);
       }
       return preResult; 
@@ -612,10 +655,14 @@ _.reduce = function(array, func, seed) {
       //If see was not given, we use the first value of the array as the preResult value, rather than seed. 
       //In the case that seed is given, we don't use the first value of the array as preResult. Rather we use seed as preResult.
   }else {
+    //if see is given create variable and assign it to the value of input seed
     let preResult = seed;
+    //use for loop to iterate through input array
       for (let i = 0; i < array.length; i++) {
+        //use the return value of the function call to update preResult
         preResult = func(preResult,array[i], i);
       }
+      //return the final updated version of preResult
       return preResult;
   }
 }
@@ -639,9 +686,13 @@ _.reduce = function(array, func, seed) {
 
 _.extend = function(object1, ...moreObjects) {
 
+  //loop through the extended array of input moreObjects to access the individual objects inside
   for (let i = 0; i < moreObjects.length; i++) {
+    //use Obejct.assign to add the values of any extra obejcts as the current value of ...moreObjects array, to the input object. If any new objects have different values
+    //this will update the original values of the input object to the new values as well.
     Object.assign(object1, moreObjects[i]);
     }
+    //return the updated input object.
     return object1;
     
   }
