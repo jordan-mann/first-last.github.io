@@ -2,21 +2,33 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-var range = function(start, end, step) {
+function range (start, end, step) {
   var numRange = [];
-   
-    if (start === end) {
+
+if (start === end) {
       return numRange;
-    }
+        }
 
   
-  for (let i = 0; i <= end; i += step) {
+  if (step < 0){
+    return numRange;
+  }
+  if (step === undefined){
+    for (let i = start; i <= end; i++) {
+    numRange.push(i)
+    } 
+    }else {
+    for (let i = start; i <= end; i += step) {
 
     numRange.push(i)
     }
+    }
+  
+
+  
     return numRange;
   }
-  
+
   //console.log(range(1, 10));
   
   
@@ -41,7 +53,14 @@ console.log(sum(range(1, 10)));
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array, newArray = []) {
+if (array.length === 0){
+  return newArray;
+}
+
+newArray.unshift(array[0]);
+
+return reverseArray(array.slice(1), newArray)
 
 }
 
@@ -49,31 +68,60 @@ function reverseArray() {
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
+function reverseArrayInPlace(array) {
+  
+    array.reverse();
+  
+    
+    return array;
+  }
 
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
+function arrayToList(array) {
+  let rest = null;
 
+  for (let i = array.length - 1; i >= 0; i--) {
+    rest = {value: array[i], rest: rest};
+  }
+  return rest;
+  
 }
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list, output = []) {
+  if (list === null){
 
+    return output;
+  }
+  
+    output.push(list.value);
+  
+  return listToArray(list.rest, output);
+  
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
+function prepend(number, list) {
+
+  var myObj = {};
+
+  myObj.value = number;
+  myObj.rest = list; 
+
+  return myObj;
 
 }
 
@@ -81,8 +129,20 @@ function prepend() {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, index) {
 
+
+  if (index < 0) {
+    return; 
+  }
+
+if (index === 0) {
+return list.value;
+}
+
+
+
+return nth(list.rest, index - 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -90,7 +150,27 @@ function nth() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function deepEqual(x, y) {
+ //determine if x AND y are both NOT OBJECTS
+ if (typeof x !== 'object' && typeof y !== 'object') {
+  return x === y;
+}
+if (typeof x !== 'object' || typeof y !== 'object') {
+  return false;
+}
 
+let xKeys = Object.keys(x); //['a', 'b']
+let yKeys = Object.keys(y); //['a', 'b', 'c']
+
+if (xKeys.length !== yKeys.length) {
+  return false;
+}
+
+for (let i = 0; i < xKeys.length; i++) {
+  if (!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])) {
+    return false;
+  }
+}
+return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
